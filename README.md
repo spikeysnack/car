@@ -1,0 +1,74 @@
+# This is my take on a *car* file with a few extras.
+
+I thought the catalog should contain more data in a 
+readable format for machines and people.
+I came up with XML ...  but later later with that.
+
+
+I settled on a simple text file format with
+
+*NaME(data)* and colon *":"* separators, all data for each file on one line.
+
+
+I stopped at 4 pieces of data:
+```
+file name
+
+file size (bytes)
+
+file mime-type string
+
+file hash (md5 is most universal)
+```
+
+so a catalog looks like this:
+
+```
+NAME(test/test1.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(3b0332e02daabf31651a5a0d81ba830a)
+NAME(test/test2.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(52feffa0e501df5c871463696d7b2b64)
+NAME(test/test3.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(3b0332e02daabf31651a5a0d81ba830a)
+```
+
+*I can work with that.*
+
+# ADDITIONAL CATALOG ITEMS
+
+Additional catalog items of the format **"NAME(*"data"*)** are fine if they are useful. 
+
+Good examples might be
+
+``` OWNER, PERMISSIONS, DATE, SUMMARY,``` 
+
+and so on. 
+
+	However, before things get too wordy, perhaps a table of contents added to the archive
+	would serve better. 
+    
+	Excessively long lines in text files should be avoided.
+	
+	Perhaps the format could be changed so that if a line begins with a colon ":"  
+	or an asterix "*",  then it is considered a  continuation of the previous line?  
+	
+
+I add the size of the catalog to the *end* of the car as a string,
+that might be better as a binary number, because it needs
+to be marshalled into a number before you can use it.
+
+This data allows programs or scripts to 
+extract the files, recreate the name and size, 
+know what to do with them, and check file integrity.
+
+I think having the mimetype ( easily done with file ) is better than
+not having it. I think having the checksum is better than not having it.
+
+Now it is something of an excersize for the student to
+extract the data from a catalog line, but it is easy 2nd year stuff,
+and perl was basically designed for that kind of thing. 
+Bash has a bit harder time, but bash 4.x has better data handling.
+
+I did build a *binary chunker* that slices up files based on
+an offset and a size, sort of a home-made dd specific
+to the task. On unix text and bin mode are the same, on
+windows this might need some additional code.
+
+
