@@ -15,9 +15,9 @@ file mime-type string
 file hash (md5 is most universal)
 
 so a catalog looks like this:
-NAME(test/test1.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(3b0332e02daabf31651a5a0d81ba830a)
-NAME(test/test2.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(52feffa0e501df5c871463696d7b2b64)
-NAME(test/test3.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(3b0332e02daabf31651a5a0d81ba830a)
+NAME(test1.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(3b0332e02daabf31651a5a0d81ba830a)
+NAME(test2.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(52feffa0e501df5c871463696d7b2b64)
+NAME(test3.txt):SIZE(21):MIMETYPE(text/plain; charset=us-ascii):MD5SUM(3b0332e02daabf31651a5a0d81ba830a)
 
 I can work with that.
 
