@@ -61,8 +61,8 @@ clean:
 dist:	clean
 	rm -f *.tgz *.car log
 	rm -rf out
-	cd .. ; tar czvf car.tgz chunk/ 
-	cd .. ; mv car.tgz chunk/
+	cd .. ; tar czvf car.tgz --exclude car/.git car/  
+	cd .. ; mv car.tgz car/
 
 
 .PHONY:	clean test dist view
